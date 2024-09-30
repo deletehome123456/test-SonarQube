@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play Page</title>
+<link rel="stylesheet" th:href="@{/resources/css/play.css}">
+</head>
+<body>
+	<div class="container">
+		<button id="toggle-btn">☰</button>
+
+		<div class="main-video" id="main-video">
+			<div class="video">
+				<iframe id="embedded-content"
+					th:src="${currentLesson != null && currentLesson.videoUrl != null ? currentLesson.videoUrl : ''}"
+					width="100%" height="900px" frameborder="0" allowfullscreen>
+				</iframe>
+				<h3 class="title"
+					th:text="${currentLesson != null && currentLesson.title != null ? currentLesson.title : 'No lesson available'}">Bài
+					1</h3>
+			</div>
+
+			<div class="controls">
+				<button id="prev-btn">Bài trước</button>
+				<button id="next-btn">Bài tiếp theo</button>
+			</div>
+		</div>
+
+		<!-- Danh sách video -->
+		<div class="video-list" id="video-list">
+			<div class="video-list-content">
+				<!-- Ô tìm kiếm bài học -->
+				<div class="search-container">
+					<input type="text" placeholder="Tìm kiếm bài học..." id="search"
+						onkeyup="searchLessons(this.value)"> <span
+						class="search-icon">&#128269;</span>
+				</div>
+
+				<div th:each="lesson, lessonStat : ${lessons}" class="vid"
+					th:classappend="${lessonStat.first} ? 'active'"
+					th:attr="data-lesson-id=${lesson.id}, data-course-id=${lesson.course != null ? lesson.course.id : 0}">
+					<video th:src="${lesson.videoUrl}" muted></video>
+					<h3 class="title" th:text="${lesson.title}">Bài học</h3>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bình luận -->
+		<div class="comment-section">
+			<h3>Bình luận</h3>
+			<div class="comment-input">
+				<textarea id="comment-text" placeholder="Nhập bình luận của bạn..."
+					rows="3"></textarea>
+				<button id="submit-comment-btn">Gửi bình luận</button>
+			</div>
+			<!-- fragment bình luận -->
+			<div th:replace="fragments/commentList"></div>
+		</div>
+	</div>
+
+	<script th:src="@{/resources/js/play.js}"></script>
+	<th:block th:include="fragments/javascript.html"></th:block>
+</body>
+</html>

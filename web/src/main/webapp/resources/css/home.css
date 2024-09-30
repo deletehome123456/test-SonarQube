@@ -1,0 +1,84 @@
+.course-banner {
+    position: relative;
+    text-align: center;
+}
+
+.course-banner img {
+    width: 100%;
+    height: auto;
+}
+
+.course-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+}
+
+.campaign {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.campaign-item {
+    margin-bottom: 10px; /* Điều chỉnh khoảng cách giữa các chương trình khuyến mãi */
+}
+
+.campaign-item p {
+    margin-bottom: 0.5rem; /* Loại bỏ khoảng cách giữa các đoạn văn */
+}
+
+.carousel-inner > .item > .carousel-placeholder {
+    width: 100%;
+    height: 400px; /* Điều chỉnh chiều cao của carousel */
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+}
+
+.course-placeholder {
+    width: 100%;
+    height: 200px; /* Điều chỉnh chiều cao của các khóa học */
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important; /* Điều chỉnh khoảng cách trên */
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important; /* Điều chỉnh khoảng cách dưới */
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.top-50 {
+    top: 50%;
+}
+
+.end-0 {
+    right: 0;
+}
+
+.translate-middle-y {
+    transform: translateY(-50%);
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.btn-custom:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow khi hover */
+}
